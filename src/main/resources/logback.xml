@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <property name="log_base" value="./logs"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%level][%logger{0}][%L][logId:%X{logId}] - %msg%n</Pattern>
+        </layout>
+    </appender>
+    <appender name="db-diff" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log_base}/db-diff.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log_base}/db-diff.log.%d{yyyy.MM.dd}</FileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%level][%logger{0}][%L][logId:%X{logId}] - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="db-diff"/>
+    </root>
+</configuration>
