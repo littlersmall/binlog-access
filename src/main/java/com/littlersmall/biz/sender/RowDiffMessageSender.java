@@ -1,24 +1,26 @@
 package com.littlersmall.biz.sender;
 
-import com.littlersmall.common.Constants;
-import com.yidian.commerce.common.utils.common.DetailRes;
-import com.yidian.commerce.common.utils.frame.Log;
-import com.yidian.commerce.common.utils.model.RowDiffModel;
-import com.yidian.commerce.common.utils.rabbitmq.MQAccessBuilder;
-import com.yidian.commerce.common.utils.rabbitmq.MessageSender;
-import com.yidian.commerce.common.utils.redis.RedisCache;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
+
+import com.littlersmall.common.Constants;
+import com.littlersmall.model.RowDiffModel;
+import com.littlersmall.rabbitmqaccess.MQAccessBuilder;
+import com.littlersmall.rabbitmqaccess.MessageSender;
+import com.littlersmall.rabbitmqaccess.common.DetailRes;
+import com.littlersmall.redisaccess.cache.RedisCache;
 
 /**
  * Created by littlersmall on 16/5/25.
@@ -35,9 +37,11 @@ public class RowDiffMessageSender {
 
     private Set<String> dbSet = new HashSet<>();
 
+    @Qualifier("buildBinlogRedisTemplate")
     @Autowired
     RedisTemplate<String, String> redisTemplate;
 
+    @Qualifier("binlogConnectionFactory")
     @Autowired
     ConnectionFactory connectionFactory;
 
@@ -57,7 +61,6 @@ public class RowDiffMessageSender {
         }
     }
 
-    @Log
     public DetailRes send(long pos, List<RowDiffModel> rowDiffModels) {
         if (redisCache.cacheIfAbsent("binlog:" + pos, Constants.TIMESTAMP_VALID_TIME)) {
             DetailRes detailRes = new DetailRes(true, "");

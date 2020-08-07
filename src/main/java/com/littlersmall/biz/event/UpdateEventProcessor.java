@@ -1,15 +1,15 @@
 package com.littlersmall.biz.event;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.code.or.binlog.impl.event.UpdateRowsEventV2;
 import com.google.code.or.common.glossary.Row;
 import com.littlersmall.biz.meta.TableMetaCache;
 import com.littlersmall.biz.sender.RowDiffMessageSender;
 import com.littlersmall.model.ColumnMeta;
+import com.littlersmall.model.RowDiffModel;
 import com.littlersmall.model.TableMeta;
-import com.yidian.commerce.common.utils.model.RowDiffModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by littlersmall on 16/11/29.

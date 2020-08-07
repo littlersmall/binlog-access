@@ -13,7 +13,7 @@ import redis.clients.jedis.JedisPoolConfig;
  * Created by littlersmall on 16/5/16.
  */
 @Configuration
-public class RedisConf {
+public class BinlogRedisConf {
     @Value("${redis.ip}")
     private String ip;
 
@@ -44,7 +44,7 @@ public class RedisConf {
 
     @Bean
     @Scope("prototype")
-    public <String, T> RedisTemplate buildRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    public <String, T> RedisTemplate buildBinlogRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, T> redisTemplate = new RedisTemplate<String, T>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
 

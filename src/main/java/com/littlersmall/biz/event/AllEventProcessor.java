@@ -1,12 +1,13 @@
 package com.littlersmall.biz.event;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.code.or.binlog.BinlogEventV4;
 import com.littlersmall.biz.meta.TableMetaCache;
 import com.littlersmall.biz.sender.RowDiffMessageSender;
-import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashMap;
-import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by littlersmall on 16/11/28.

@@ -1,11 +1,11 @@
 package com.littlersmall.biz.consumer;
 
 import com.littlersmall.common.Constants;
-import com.yidian.commerce.common.utils.common.DetailRes;
-import com.yidian.commerce.common.utils.model.RowDiffModel;
-import com.yidian.commerce.common.utils.rabbitmq.MQAccessBuilder;
-import com.yidian.commerce.common.utils.rabbitmq.MessageProcess;
-import com.yidian.commerce.common.utils.rabbitmq.ThreadPoolConsumer;
+import com.littlersmall.model.RowDiffModel;
+import com.littlersmall.rabbitmqaccess.MQAccessBuilder;
+import com.littlersmall.rabbitmqaccess.MessageProcess;
+import com.littlersmall.rabbitmqaccess.ThreadPoolConsumer;
+import com.littlersmall.rabbitmqaccess.common.DetailRes;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

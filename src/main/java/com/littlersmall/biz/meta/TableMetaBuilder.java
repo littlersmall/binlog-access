@@ -1,9 +1,10 @@
 package com.littlersmall.biz.meta;
 
-import com.littlersmall.model.ColumnMeta;
-import com.littlersmall.model.TableMeta;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.littlersmall.model.ColumnMeta;
+import com.littlersmall.model.TableMeta;
 
 /**
  * Created by littlersmall on 16/11/21.

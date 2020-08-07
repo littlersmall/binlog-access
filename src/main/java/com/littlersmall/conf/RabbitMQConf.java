@@ -25,7 +25,7 @@ public class RabbitMQConf {
     private String password;
 
     @Bean
-    public ConnectionFactory connectionFactory() {
+    public ConnectionFactory binlogConnectionFactory() {
         System.out.println("ip = " + ip);
         System.out.println("port = " + port);
 

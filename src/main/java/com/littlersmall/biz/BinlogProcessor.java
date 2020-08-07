@@ -1,16 +1,18 @@
 package com.littlersmall.biz;
 
-import com.littlersmall.biz.event.AllEventProcessor;
-import com.littlersmall.biz.meta.BinlogMetaBuilder;
-import com.littlersmall.biz.meta.TableMetaCache;
-import com.littlersmall.biz.sender.RowDiffMessageSender;
+import javax.annotation.PostConstruct;
+
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
+import com.littlersmall.biz.event.AllEventProcessor;
+import com.littlersmall.biz.meta.BinlogMetaBuilder;
+import com.littlersmall.biz.meta.TableMetaCache;
+import com.littlersmall.biz.sender.RowDiffMessageSender;
 
 /**
  * Created by littlersmall on 16/11/30.
@@ -25,6 +27,7 @@ public class BinlogProcessor {
     @Value("${db.port}")
     private int port;
 
+    @Qualifier("buildDataSource")
     @Autowired
     BasicDataSource basicDataSource;
 

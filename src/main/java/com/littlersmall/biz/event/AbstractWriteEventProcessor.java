@@ -1,5 +1,7 @@
 package com.littlersmall.biz.event;
 
+import java.util.List;
+
 import com.google.code.or.binlog.BinlogEventV4;
 import com.google.code.or.binlog.impl.event.AbstractRowEvent;
 import com.google.code.or.common.glossary.Column;
@@ -7,10 +9,8 @@ import com.google.code.or.common.glossary.column.BlobColumn;
 import com.google.code.or.common.glossary.column.StringColumn;
 import com.littlersmall.biz.meta.TableMetaCache;
 import com.littlersmall.biz.sender.RowDiffMessageSender;
+import com.littlersmall.model.RowDiffModel;
 import com.littlersmall.model.TableMeta;
-import com.yidian.commerce.common.utils.model.RowDiffModel;
-
-import java.util.List;
 
 /**
  * Created by littlersmall on 16/11/30.
