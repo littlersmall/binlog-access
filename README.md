@@ -1,6 +1,10 @@
 # binlog-access
 ![mysql.jpeg](http://upload-images.jianshu.io/upload_images/1397675-ff7595dd58a2cfbb.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+# 20200807 更新  
+1 调整依赖，使项目可以顺利编译
+2 该项目依赖 redis-access 和 rabbitmq-access，需要 git clone https://github.com/littlersmall/rabbitmq-access.git 和 git clone https://github.com/littlersmall/redis-access.git 之后在本地 mvn clean install 两个工程。然后才可以正确编译运行该工程
+
 一 背景
 
 1 binlog定义
